@@ -1,0 +1,120 @@
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: min(70%, 375px);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+figure {
+	justify-self: center;
+}
+
+figure img {
+	width: 100%;
+}
+
+figure figcaption {
+	word-break: break-word;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+@media only screen and (min-width: 650px) {
+	.jump:focus {
+		top: 0;
+	}
+	.container {
+		width: 95%;
+		background-image: url('../images/concrete_seamless.png');
+		grid-template-columns: repeat(3, 25%);
+		justify-content: space-around;
+	}
+	.container > *:nth-child(2n+1) {
+		grid-column: 1 / span 2;
+	}
+	.container > *:nth-child(2n) {
+		grid-column: 2 / span 2;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+	.container {
+		grid-template-columns: repeat(4, 20%);
+		justify-content: space-between;
+	}
+	.container > *:nth-child(2n) {
+		grid-column: 3 / span 2;
+	}
+	.container > *:last-child {
+		grid-column: 2 / span 2;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	.container {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.container > * {
+		width: 20%;
+	}
+	.container > *:nth-child(4n) {
+		width: 40%;
+		border: 10px solid black;
+	}
+	.container > *:nth-child(2) {
+		order: 1;
+	}
+}
+
+@media only screen and (min-width: 1050px) {
+	.container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: center;
+		overflow: hidden;
+	}
+	.container > * {
+		width: 75%!important;
+		margin-bottom: 20px;
+	}
+	.container > *:nth-child(2n+1) {
+		order: initial;
+		grid-column: initial;
+		transform: rotate(-15deg);
+		margin-right: auto;
+	}
+	.container > *:nth-child(2n) {
+		order: initial;
+		grid-column: initial;
+		transform: rotate(15deg);
+		margin-left: auto;
+	}
+	.container > *:last-child {
+		transform: initial;
+		grid-column: 1 / span 2;
+		margin: initial;
+	}
+}
+
+@keyframes fade-in{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.logo {
+	animation: fade-in 10s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.logo {
+		animation: none;
+	}
+}
